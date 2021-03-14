@@ -5,7 +5,9 @@ const ejs=require('ejs');
 const expresslayouts=require('express-ejs-layouts');
 const app=express();
 const route=require('./routes');
-const port=3000;
+const db=require('./database');
+
+
 
 
 
@@ -22,4 +24,4 @@ app.set('views',path.join(__dirname+'/resources/views'));
 route(app);
 
 
-app.listen(port,()=>console.log('example app listenning at http://localhost://3000'));
+app.listen(3000,()=>console.log('example app listenning at http://localhost://3000'));

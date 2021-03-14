@@ -1,3 +1,6 @@
+const myModel=require('C:\\Users\\Duc\\Desktop\\test1\\src\\models\\MyModel.js');
+const db=require('C:\\Users\\Duc\\Desktop\\test1\\src\\database.js');
+
 class NewsController{
 
     // GET  /news
@@ -15,6 +18,23 @@ class NewsController{
 search(req,res){
     res.render('search',{title:'search page',layout:'./layouts/main'});
 }
+
+    createget(req,res){
+        res.render('create',{title:'create' ,layout:'./layouts/main'});
+
+    }
+
+    createpost(req,res){
+
+        var mms=req.body.mms;
+        var mmh=req.body.mmh;
+        var dqt=req.body.dqt;
+        myModel.create(mms,mmh,dqt,(data)=>{
+            console.log(data);
+        });
+
+
+    }
 
 }   
 module.exports = new NewsController ;
