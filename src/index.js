@@ -11,7 +11,7 @@ const db=require('./database');
 
 
 
-
+app.use(expresslayouts);
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname,'public')));
