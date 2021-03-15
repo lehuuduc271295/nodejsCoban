@@ -1,10 +1,10 @@
 const express=require('express');
 const router=express.Router();
+const db=require('../models/MyModel');
 const newsController = require('../app/controllers/NewsController');
 
 
-router.use('/create',newsController.createget);
-router.use('/createpost',newsController.createpost);
+
 router.use('/new/:slug',newsController.show);
 router.use('/new',newsController.new);
 router.use('/search/:slug',newsController.show);

@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title><%- title%> </title>
-    </head>
-    <body>
+
             <h1> them diem  </h1>
-            <form action='/create' method="POST" >
+            <form action='/diem/createpost' method="POST" >
                 <input type='text' name='mssv' placeholder="MSSV">
                 <input type='text' name='mmh' placeholder="Ma mon hoc">
                 <input type='text' name='dqt' placeholder='Diem qua trinh'>
                 <input type='submit' value='Create'>
             </form>
-    </body>
-</html>
+            <input type="button" value="xem diem" onclick="lick()">
+        
+	<script type='text/javascript'>
+		
+		function lick(){
+			window.location="http://localhost:3000/diem/show";
+		}
+	</script>

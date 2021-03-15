@@ -5,12 +5,12 @@ const ejs=require('ejs');
 const expresslayouts=require('express-ejs-layouts');
 const app=express();
 const route=require('./routes');
-const db=require('./database');
 
 
 
 
 
+app.set('layout','./layouts/site');
 app.use(expresslayouts);
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());

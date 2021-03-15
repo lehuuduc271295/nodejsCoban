@@ -1,0 +1,27 @@
+
+<table>
+<thead>
+    <tr>
+        <th> MSSV</th>
+        <th> Ma muon hoc </th>
+        <th> Diem qua trinh</th>
+    </tr>
+</thead>
+<tbody>
+    <% user.forEach((data)=>{%>
+    <tr>
+        <td><%= data.Ma_SV %></td>
+        <td><%= data.Ma_MH %></td>
+        <td><%= data.DQT %></td>
+    </tr>
+    <%});%>
+</tbody>
+</table>
+        <input type="button" value="trang chu" onclick="lick()">
+        
+	<script type='text/javascript'>
+		
+		function lick(){
+			window.location="http://localhost:3000/diem/create";
+		}
+	</script>

@@ -8,6 +8,13 @@ class query{
             return callback(data);
         });
     }
+    showdiem(cb){
+        var sql="select * from diem";
+        db.query(sql,(err,data,field)=>{
+            if(err) throw err;
+            return cb(data);
+        })
+    }
 
 }
 
