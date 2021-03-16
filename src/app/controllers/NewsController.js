@@ -18,7 +18,5 @@ class NewsController{
 search(req,res){
     res.render('search',{title:'search page',layout:'./layouts/main'});
 }
-
-    
-}   
+} 
 module.exports = new NewsController;

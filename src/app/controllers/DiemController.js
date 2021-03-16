@@ -2,7 +2,7 @@ const myModel=require('C:\\Users\\Duc\\Desktop\\test1\\src\\models\\MyModel.js')
 class DiemController{
 
     createget(req,res){
-        res.render('create',{title:'create',layout:'./layouts/main'});
+        res.render('./diem/create',{title:'create',layout:'./layouts/main'});
 
     }
 
@@ -11,16 +11,17 @@ class DiemController{
         var mssv=req.body.mssv;
         var mmh=req.body.mmh;
         var dqt=req.body.dqt;
-        myModel.create(mssv,mmh,dqt,(data)=>{
+        var dt=req.body.dt;
+        myModel.create(mssv,mmh,dqt,dt,(data)=>{
            console.log(data);
         });
-        res.render('create',{title:'create',layout:'./layouts/main'});
+        res.render('./diem/create',{title:'create',layout:'./layouts/main'});
     }
 
     showdiem(req,res){
         myModel.showdiem((data)=>{
             
-           res.render('showdiem',{user:data});
+           res.render('./diem/showdiem',{layout:'./layouts/site',user:data});
 
         })
     }
