@@ -12,6 +12,7 @@ class DiemController{
         var mmh=req.body.mmh;
         var dqt=req.body.dqt;
         var dt=req.body.dt;
+
         myModel.create(mssv,mmh,dqt,dt,(data)=>{
            console.log(data);
         });
@@ -24,6 +25,16 @@ class DiemController{
            res.render('./diem/showdiem',{layout:'./layouts/site',user:data});
 
         })
+    }
+    searchget(req,res){
+        
+        res.render('./diem/searchdiem',{layout:'./layouts/site'});
+    }
+    searchpost(req,res){
+        var mssv=req.body.timkiem;
+        myModel.searchdiem(mssv,(data)=>{
+            res.render('./diem/searchdiempost',{layout:'./layouts/site',user:data});
+        });
     }
 
 }

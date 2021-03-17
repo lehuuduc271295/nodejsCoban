@@ -1,11 +1,9 @@
-
 <h1>Tim kiem</h1>
 <form action='/diem/searchpost' method='POST'>
 <input type='text' name='timkiem' placeholder='Nhap Ma So Sinh Vien'>
 <input type='submit' value='tim kiem'>
 </form>
 <h2>thong tin</h2>
-
 <table>
     <thead>
         <tr>
@@ -18,8 +16,15 @@
         </tr>
     </thead>
     <tbody>
-        
-        
-           
+        <% user.forEach((sv)=>{%>
+            <td><%= sv.Ma_SV %></td>
+            <td><%= sv.Ma_MH %></td>
+            <td><%= sv.DQT %></td>
+            <td><%= sv.DT %></td>
+            <td><%= sv.DTB10 %></td>
+            <td><%= sv.DTB4 %></td>
+            <td><%= sv.LoaiDiem %></td>
+            <%});%>
     </tbody>
 
+</table>

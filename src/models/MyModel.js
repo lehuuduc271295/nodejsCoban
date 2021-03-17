@@ -15,6 +15,14 @@ class query{
             return cb(data);
         })
     }
+    searchdiem(tim,cb){
+        var sql="select * from diem where Ma_SV=?";
+        db.query(sql,[tim],(err,data)=>{
+            
+            if(err)  throw err;
+            return cb(data);
+        })
+    }
 
 }
 
