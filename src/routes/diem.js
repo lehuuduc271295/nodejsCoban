@@ -4,10 +4,10 @@ const newsController=require('../app/controllers/DiemController');
 
 
 
-router.use('/create',newsController.createget);
-router.use('/createpost',newsController.createpost);
-router.use('/show',newsController.showdiem);
-router.use('/searchget',newsController.searchget);
-router.use('/searchpost',newsController.searchpost);
+router.use('/create',newsController.getCreate);
+router.use('/createpost',newsController.postCreate);
+router.use('/show',newsController.fetchDiem);
+router.use('/searchget',newsController.getSearch);
+router.use('/searchpost',newsController.postSearch);
 
 module.exports=router;

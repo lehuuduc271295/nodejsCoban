@@ -5,12 +5,14 @@ const ejs=require('ejs');
 const expresslayouts=require('express-ejs-layouts');
 const app=express();
 const route=require('./routes');
+const session=require('express-session');
 
-
-
-
-
-app.set('layout','./layouts/site');
+app.use(session({
+    secret :'secret key',
+    resave:false,
+    saveUninitialized:true,
+    cookie:{maxAge:6000}
+}))
 app.use(expresslayouts);
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
