@@ -3,11 +3,12 @@ class DiemController{
 
     getCreate(req,res){
         var userID=req.session.userID;
-         var user=req.session.user;
-         if(userID==null){
-             res.redirect('/login');
-         }
-         else
+        var user=req.session.user;
+        if(userID!==null){
+         res.redirect('/login');
+        }   
+        else
+       
         res.render('./diem/create',{title:'create',layout:'./layouts/main'});
 
     }

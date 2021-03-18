@@ -15,8 +15,10 @@ var
 
 
         outputlogin(userName,passWord,cb){
-            const sql="select * from users where user_name=? and password=?";
+            var sql="select * from users where user_name=? and password=?";
             db.query(sql,[userName,passWord],(err,result)=>{
+           
+              
                 return cb(result);
             })
         }

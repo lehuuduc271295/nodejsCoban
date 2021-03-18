@@ -1,3 +1,4 @@
+const { NULL } = require('node-sass');
 const authenticationModel=require('../../models/AuthenticationModel');
 class AuthenticationController{
     
@@ -9,8 +10,10 @@ class AuthenticationController{
         const userName=req.body.user_name;
         const password=req.body.password;
         authenticationModel.outputlogin(userName,password,(result)=>{
-            if(result[0].id!==null)
+            
+            if(typeof(result[0].user_name)=="string")
             {
+                console.log(result[0].user_name);
                 req.session.userId=result[0].id;
                 req.session.user=result[0];
                 console.log(req.session.userId);
@@ -19,7 +22,6 @@ class AuthenticationController{
             else{
                 res.redirect('/new');
             }
-            
         })
     }
     getSignup(req,res){
