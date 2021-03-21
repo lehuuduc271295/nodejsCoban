@@ -1,22 +1,37 @@
-const myModel = require("../../models/MyModel.js");
+const myModel = require("../../models/MyModel");
 class DiemController {
-    createget(req, res) {
-        res.render("create", { title: "create", layout: "./layouts/main" });
+    getCreate(req, res) {
+        var userID = req.session.userID;
+        var user = req.session.user;
+        if (userID !== null) {
+            res.redirect("/login");
+        } else res.render("./diem/create", { title: "create", layout: "./layouts/main" });
     }
 
-    createpost(req, res) {
+    postCreate(req, res) {
         var mssv = req.body.mssv;
         var mmh = req.body.mmh;
         var dqt = req.body.dqt;
-        myModel.create(mssv, mmh, dqt, (data) => {
+        var dt = req.body.dt;
+
+        myModel.inputDiem(mssv, mmh, dqt, dt, (data) => {
             console.log(data);
         });
-        res.render("create", { title: "create", layout: "./layouts/main" });
+        res.render("./diem/create", { title: "create", layout: "./layouts/main" });
     }
 
-    showdiem(req, res) {
-        myModel.showdiem((data) => {
-            res.render("showdiem", { user: data });
+    fetchDiem(req, res) {
+        myModel.outputDiem((data) => {
+            res.render("./diem/showdiem", { title: "show", layout: "./layouts/main", user: data });
+        });
+    }
+    getSearch(req, res) {
+        res.render("./diem/searchdiem", { title: "search", layout: "./layouts/main" });
+    }
+    postSearch(req, res) {
+        var mssv = req.body.timkiem;
+        myModel.searchDiem(mssv, (data) => {
+            res.render("./diem/searchdiempost", { layout: "./layouts/site", user: data });
         });
     }
 }
