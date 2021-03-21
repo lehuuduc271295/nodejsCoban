@@ -13,9 +13,4 @@ class NewsController {
         res.render("search", { title: "search page", layout: "./layouts/main" });
     }
 }
-<<<<<<< HEAD
-} 
 module.exports = new NewsController();
-=======
-module.exports = new NewsController();
->>>>>>> main

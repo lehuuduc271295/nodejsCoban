@@ -7,14 +7,6 @@ const app = express();
 const route = require('./routes');
 const session = require('express-session');
 
-<<<<<<< HEAD
-app.use(session({
-    secret :'secretkey',
-    resave:true,
-    saveUninitialized:true,
-    cookie:{maxAge:6000}
-}))
-=======
 app.use(
 	session({
 		secret: 'secret key',
@@ -23,7 +15,6 @@ app.use(
 		cookie: { maxAge: 6000 },
 	}),
 );
->>>>>>> main
 app.use(expresslayouts);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
