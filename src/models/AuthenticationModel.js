@@ -24,4 +24,4 @@ var
         }
 }
 
-module.exports =new AuthenticationQurey;
+module.exports =new AuthenticationQurey();

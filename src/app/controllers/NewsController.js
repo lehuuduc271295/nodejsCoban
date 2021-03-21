@@ -19,4 +19,4 @@ getSearch(req,res){
     res.render('search',{title:'search page',layout:'./layouts/main'});
 }
 } 
-module.exports = new NewsController;
+module.exports = new NewsController();

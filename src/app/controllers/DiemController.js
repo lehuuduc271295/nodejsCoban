@@ -1,16 +1,20 @@
+
 const myModel=require('../../models/MyModel');
-class DiemController{
+const AuthenticationController = require('./AuthenticationController');
+class DiemController {
 
     getCreate(req,res){
-        var userID=req.session.userID;
-        var user=req.session.user;
-        if(userID!==null){
-         res.redirect('/login');
+       var session=req.session;
+        if(session){
+            
+            console.log(session.userId);
+            res.render('./diem/create',{title:'create',layout:'./layouts/main'});
         }   
         else
-       
-        res.render('./diem/create',{title:'create',layout:'./layouts/main'});
-
+        {
+            
+        res.redirect('/login');
+        }
     }
 
     postCreate(req,res){
@@ -47,4 +51,4 @@ class DiemController{
 }
 
 
-module.exports= new DiemController;
+module.exports= new DiemController();

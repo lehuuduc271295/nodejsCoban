@@ -8,8 +8,8 @@ const route=require('./routes');
 const session=require('express-session');
 
 app.use(session({
-    secret :'secret key',
-    resave:false,
+    secret :'secretkey',
+    resave:true,
     saveUninitialized:true,
     cookie:{maxAge:6000}
 }))
